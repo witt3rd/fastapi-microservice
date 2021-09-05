@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt update && apt upgrade -y
-RUN apt install -y -q build-essential python3-pip python3-dev
+RUN apt install -y -q build-essential python3-pip python3-dev git
 
 # Install Docker CE CLI
 RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 lsb-release \
