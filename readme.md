@@ -1,5 +1,5 @@
 <div align="center">
 
-# python graphql microservice template
+# FastAPI Microservice Template
 
 </div>
