@@ -24,8 +24,14 @@ RUN pip3 install -r /app/requirements.txt
 
 COPY service/ /app
 
+ENV ACCESS_LOG=${ACCESS_LOG:-/proc/1/fd/1}
+ENV ERROR_LOG=${ERROR_LOG:-/proc/1/fd/2}
+
 ENTRYPOINT /usr/local/bin/gunicorn main:app \
     -b 0.0.0.0:3500 \
     -w 4 \
     -k uvicorn.workers.UvicornWorker \
-    --chdir /app
+    --chdir /app \
+    --access-logfile "$ACCESS_LOG" \
+    --error-logfile "$ERROR_LOG"
+
